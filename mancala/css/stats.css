@@ -1,0 +1,222 @@
+/*----------------------------------- STATISTICS PAGE -----------------------------------*/
+#stats-page {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: #263741;
+    color: white;
+    z-index: 3;
+}
+
+.gameMoves-table::-webkit-scrollbar {
+    width: 2px;
+    height: 0.5vh;
+}
+
+.gameMoves-table::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 5px;
+    z-index: -1;
+}
+
+.gameMoves-table::-webkit-scrollbar-track {
+    background: #C3AC37;
+}
+
+#stats-page > .title-logo {
+    display: block;
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10vw;
+    padding: 4vh 0 2vh 0;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background-image: linear-gradient(180deg, #DABC22 0%, rgba(231, 200, 37, 0.78) 41.67%, #252420 78.77%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gameMoves-table {
+    width: 100%;
+    display: grid;
+    position: relative;
+    grid-template-rows: auto auto;
+    max-width: 65vw;
+    height: 12vh;
+    line-height: 5.75vh;
+    background: #263741;
+    border: 0.5vh solid #C3AC37;
+    box-shadow: -6px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), -6px 6px 4px rgba(0, 0, 0, 0.5), 6px 6px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-top: 5vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.gameMoves-line {
+    display: flex;
+    flex-direction: row;
+}
+
+.play-log {
+    font-family: numbersFont;
+    font-size: 1.3vw;
+    width: 4vw;
+    text-align: center;
+    border-right: 4px solid #C3AC37;
+    margin-top: -0.2em;
+    margin-bottom: -2em;
+}
+
+.gameMoves-line:nth-child(1) {
+    border-bottom: 4px solid #C3AC37;
+}
+
+.gameMoves-table-name {
+    display: block;
+    border-right: 4px solid #C3AC37;
+    height: 100%;
+    text-align: center;
+    width: 5vw;
+}
+
+#stats-board {
+    display: block;
+    margin: 0 auto;
+    width: 65vw;
+    height: 35vh;
+    padding: 2% 2%;
+
+    background: rgba(0, 0, 0, 0.25);
+    border: 5px solid #C3AC37;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), -4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    text-align: center;
+}
+
+.stats-boardContainer {
+    display: inline-block;
+    margin: 0 auto;
+    width: 15vw;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #AD7228 10%, rgba(231, 200, 37, 0.78) 21.67%, #252420 88.77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.stats-boardName {
+    display: inline-block;
+    width: 14vw;
+    font-family: mancalaFont;
+    font-size: 3.5vw;
+    line-height: 8vh;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 20%, rgba(54, 78, 80, 0.78) 85.1%, #252420 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-boardNumber {
+    display: inline-block;
+    width: 15vw;
+    font-family: numbersFont;
+    font-size: 8vw;
+    line-height: 15vh;
+    background: linear-gradient(180deg, #AD7228 10%, rgba(231, 200, 37, 0.78) 21.67%, #252420 88.77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#stats-boardBetweenNumbers {
+    display: inline-block;
+    width: 10vw;
+    font-family: numbersFont;
+    font-size: 19vh;
+    line-height: 10vh;
+}
+
+#stats-boardTimeContainer {
+    margin-top: -10%;
+    margin-bottom: 5%;
+}
+
+#stats-boardTimeImg {
+    vertical-align: middle;
+    width: 1.5vw;
+}
+
+#stats-boardTimeText {
+    font-family: numbersFont;
+    -webkit-text-fill-color: #FFF;
+}
+
+#stats-gameMoves {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+#stats-gameMoves>hr {
+    border-width: 0px;
+    height: 0.5vh;
+    background: #C3AC37;
+}
+
+.stats-gameMoves {
+    font-size: 3vh;
+}
+
+.stats-leaderboardImage {
+    padding-left: 2%;
+    padding-right: 1%;
+    width: 2%;
+}
+
+#stats-buttonsContainer {
+    display: block;
+    margin: 0 auto;
+    width: 65vw;
+    clear: both;
+    margin-top: 2%;
+}
+
+.stats-button {
+    color: #fff;
+    width: 21vw;
+    height: 12vh;
+    font-size: 5vh;
+    font-family: mancalaFont;
+    text-align: center;
+    letter-spacing: -0.02em;
+    border: 0;
+    background: linear-gradient(180deg, #AD7228 0%, rgba(173, 114, 40, 0.739583) 99.99%, rgba(173, 114, 40, 0) 100%);
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.stats-button:hover {
+    transform: scale(1.05);
+}
+
+.stats-button:first-child {
+    float: left;
+}
+
+.stats-button:last-child {
+    float: right;
+}
+
+.stats-buttonImage {
+    width: 2.5vw;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    vertical-align: middle;
+    padding-bottom: 1.5%;
+}

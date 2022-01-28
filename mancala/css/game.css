@@ -1,0 +1,285 @@
+/*----------------------------------- GAME PAGE -----------------------------------*/
+#game-page {
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+}
+
+#game-score {
+    display: inline-flex;
+    margin: 0 auto;
+    width: 55vw;
+    margin-left: 23vw;
+    height: 30vh;
+    padding: 0% 2% 2% 2%;
+
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#gameTime {
+    float: right;
+    margin-top: 0.5%;
+    margin-right: 0.5%;
+    z-index: 100;
+}
+
+#gamePauseIcon {
+    width: 2vw;
+    height: 3vh;
+    vertical-align: middle;
+    margin-right: -4%;
+    margin-bottom: 2%;
+    animation: rotating 3s infinite;
+    z-index: 3000;
+    cursor: pointer;
+}
+
+#gamePauseIcon:hover {
+    transform: scale(1.25);
+}
+
+#gameTimeCounter {
+    font-family: numbersFont;
+    padding-right: 0.73vw;
+    background: url("../assets/Hourglass.svg") no-repeat right;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3vh;
+    line-height: 3vh;
+    letter-spacing: -0.02em;
+    color: #e2ae6f;
+    text-shadow: 7px 5px 4px #000000;
+}
+
+.game-scoreContainer {
+    margin: 0 auto;
+    width: 20vw;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #AD7228 10%, rgba(231, 200, 37, 0.78) 21.67%, #252420 88.77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.game-scoreNumber {
+    width: 20vw;
+    font-family: numbersFont;
+    font-size: 18vh;
+    line-height: 15vh;
+    background: linear-gradient(180deg, #AD7228 10%, rgba(231, 200, 37, 0.78) 21.67%, #252420 88.77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#game-scoreBetweenNumbers {
+    display: inline-block;
+    width: 10vw;
+    font-family: numbersFont;
+    font-size: 20vh;
+    height: 40vh;
+    line-height: 12vh;
+    vertical-align: top;
+    background: linear-gradient(180deg, #AD7228 10%, rgba(231, 200, 37, 0.78) 11.67%, #252420 88.77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.game-yourTurn {
+    width: 20vw;
+    font-family: mancalaFont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3vw;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: #DABC22;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    visibility: hidden;
+}
+
+.game-scoreName {
+    width: 20vw;
+    font-family: mancalaFont;
+    font-size: 3vw;
+    line-height: 8vh;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(54, 78, 80, 0.78) 85.1%, #252420 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*----------------------------------- BOARD -----------------------------------*/
+
+#game-board {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas:
+        "player0  holes-row-0  player1"
+        "player0  holes-row-1  player1";
+
+    margin: 0 auto;
+    width: 70vw;
+    height: 65vh;
+    border-radius: 150px;
+    background: #1c2931;
+    margin-top: 1%;
+}
+
+#holes-row-1 {
+    grid-area: holes-row-1;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#holes-row-0 {
+    grid-area: holes-row-0;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.player1 {
+    grid-area: player1;
+}
+
+.player0 {
+    grid-area: player0;
+}
+
+.points-holes {
+    position: relative;
+    font-family: numbersFont;
+    width: 80%;
+    height: 80%;
+    border-radius: 180px;
+    background-color: #11191e;
+    align-self: center;
+    margin: 0 auto;
+    box-shadow: -5px -4px 4px rgba(0, 0, 0, 0.25), inset 10px 4px 4px rgba(19, 18, 15, 0.25);
+}
+
+.points-holes:nth-child(1) {
+    box-shadow: -10px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hole {
+    position: relative;
+    font-family: numbersFont;
+    border-radius: 80px;
+    background-color: #11191e;
+    display: flex;
+    height: 75%;
+    width: 100%;
+    margin: 1%;
+    box-shadow: -5px -4px 4px rgba(0, 0, 0, 0.25), inset 10px 4px 4px rgba(19, 18, 15, 0.25);
+}
+
+.hole.active:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.9);
+}
+
+.seed {
+    position: absolute;
+    width: 3vw;
+    height: 3vh;
+    border-radius: 50%;
+}
+
+/*----------------------------------- POPUP -----------------------------------*/
+
+.popup {
+    color: rgba(169, 115, 62, 1);
+    font-family: numbersFont;
+    font-size: 4.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 5vh;
+    width: 4vw;
+    background: #FFF;
+    border-radius: 25px;
+    opacity: 0;
+    transition: all 0.15s ease;
+    position: relative;
+    top: -15%;
+    left: 65%;
+}
+
+.hole:hover .popup, .points-holes:hover .popup {
+    opacity: 0.8;
+    transition: all 0.25s ease;
+}
+
+.points-holes .popup {
+    top: -6.5%;
+    left: 60%;
+}
+
+.popup .point {
+    position: relative;
+    width: 0;
+    height: 0;
+    margin-top: -3vh;
+    margin-right: 5%;
+    border-left: 1.4vw solid transparent;
+    border-right: 1.5vw solid transparent;
+    border-top: 5vmin solid #FFF;
+    border-radius: 5px;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+
+/*----------------------------------- LOADING SCREEN -----------------------------------*/
+
+
+#position-played {
+    font-family: numbersFont;
+    font-size: 2em;
+    margin: 2% 0;
+    display: none;
+}
+
+#loading-animation {
+    display: block;
+    width: 100%;
+    margin-top: 4%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    padding: 1.5%;
+    border-radius: 50%;
+}
+
+#dot1 {
+    background: rgb(50, 120, 150);
+    animation: jump-up 0.9s 0.3s linear infinite;
+}
+
+#dot2 {
+    background: rgb(255, 150, 255);
+    animation: jump-up 0.9s 0.4s linear infinite;
+}
+
+#dot3 {
+    background: rgba(2, 150, 40, 1);
+    animation: jump-up 0.9s 0.5s linear infinite;
+}
+
+@keyframes jump-up {
+    50% {
+        transform: translate(0, 15px);
+    }
+}

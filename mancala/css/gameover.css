@@ -1,0 +1,103 @@
+/*----------------------------------- GAME OVER PAGE -----------------------------------*/
+#game-over {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: rgba(3, 0, 0, 0.9);
+}
+
+#gameOverTopContainer {
+    padding-top: 14vh;
+    margin-bottom: 1%;
+}
+
+.gameOverTextContainer {
+    font-family: mancalaFont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19vmin;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: -0.02em;
+    background-size: 100%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gameOverTextContainer:nth-child(1), .gameOverTextContainer:nth-child(2) {
+    clear: both;
+}
+
+.winContainer {
+    background-image: linear-gradient(180deg, rgba(231, 200, 37, 0.78) 60.97%, #FFFFFF 85.24%);
+}
+
+.lostContainer {
+    background-image: linear-gradient(180deg, #FF0000 0%, #030303 93%);
+}
+
+.drawContainer {
+    background-image: linear-gradient(180deg, rgba(255, 122, 0, 1) 0%, #030303 93%);
+}
+
+.gameOverButton {
+    font-family: mancalaFont;
+    width: 15%;
+    height: 11%;
+    display: block;
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.75vmin;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    background-image: linear-gradient(180deg, #AD7228 0%, rgba(54, 37, 18, 0.93) 95%);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1%;
+}
+
+#game-over #gameStats {
+    position: absolute;
+    background: transparent;
+    border: 0;
+    top: 11vh;
+    right: 20vw;
+}
+
+#game-over #gameStats img {
+    width: 6vmin;
+    height: 5vmin;
+    transition: all 0.10s ease;
+}
+
+#game-over #gameStats img:hover {
+    transform: scale(1.25);
+    transition: all 0.10s ease;
+    cursor: pointer;
+}
+
+#gameStats img+span {
+    position: absolute;
+    top: 70%;
+    right: 70%;
+    display: block;
+    opacity: 0;
+    width: 250%;
+    font-size: 1.8vmin;
+    line-height: 2.75vmin;
+    background: rgba(173, 114, 40, 0.8);
+    border-radius: 10px;
+    color: white;
+    cursor: default !important;
+    transition: all 0.15s ease;
+}
+
+#game-over #gameStats img:hover+span {
+    opacity: 1;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}

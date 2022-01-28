@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/mancala.png">
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/game.css">
+    <link rel="stylesheet" href="./css/gameover.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/pause.css">
+    <link rel="stylesheet" href="./css/stats.css">
+    <link rel="stylesheet" href="./css/stats.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+
+    <script src="./js/server.js"></script>
+    <script src="./js/player.js"></script>
+    <script src="./js/MPplayer.js"></script>
+    <script src="./js/bot.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/SPgame.js"></script>
+    <script src="./js/MPgame.js"></script>
+    <script src="./js/mancala.js"></script>
+    <script src="./js/canvas.js"></script>
+
+    <title>Mancala</title>
+</head>
+
+<body>
+    <div id="sidebar">
+        <div class="logo">
+            Mancala
+        </div>
+        <ul class="nav_list">
+            <li class="listItem">
+                <div class="optionTitle">Board</div>
+                <div class="options">
+                    <ul id='boardOptions'>
+                        <li>
+                            <div style="background: #1C2931" class='option'></div>
+                        </li>
+                        <li><img src='./assets/woodOption1.svg' class='option' alt='wood' /></li>
+                        <li><img src='./assets/woodOption2.svg' class='option' alt='wood1' /></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="listItem">
+                <div class="optionTitle">Holes</div>
+                <div class="options">
+                    <ul id='holesOptions'>
+                        <li>
+                            <div style="background: #11191e" class='option'></div>
+                        </li>
+                        <li>
+                            <div style="background: #634E2F" class='option'></div>
+                        </li>
+                        <li>
+                            <div style="background: #723a01c2" class='option'></div>
+                        </li>
+                    </ul>
+
+                </div>
+            </li>
+            <li class="listItem">
+                <div class="optionTitle">Seeds</div>
+                <div class="options">
+                    <ul id='seedsOptions'>
+                        <li>
+                            <div data-colorsId='0'>default</div>
+                        </li>
+                        <li>
+                            <div data-colorsId='1'>mint</div>
+                        </li>
+                        <li>
+                            <div data-colorsId='2'>pinky</div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div id="sidebar-bttn">
+            <img src="./assets/sidebarBttn.svg" alt="sidebar-button" />
+        </div>
+        <div id="playerZone">
+            <img src="./assets/user.png" alt="User" />
+            <div class="text logged">
+                Tiago
+            </div>
+            <!-- <button class="btn logged">log out</button> -->
+            <label class="text not-logged">
+                username
+                <input type="text" name="username" id="username" />
+            </label>
+            <button class="btn not-logged">log in</button>
+        </div>
+        <div id="sidebar-leaderboardZone"></div>
+        <div id="sidebar-footer">
+            <span>ESC</span>
+            <span>pause menu</span>
+            <div>Beatriz Aguiar | Tiago Silva</div>
+            <div>Beatriz Aguiar | Tiago Silva</div>
+        </div>
+    </div>
+    <div id="game-page">
+        <div id="gameTime">
+            <img id="gamePauseIcon" src="./assets/Pause.svg" alt="pause" />
+            <span id="gameTimeCounter"></span>
+        </div>
+        <div id="game-score">
+            <div class="game-scoreContainer">
+                <div id="score1" class="game-scoreNumber"></div>
+                <div>
+                    <div id="name1" class="game-scoreName"></div>
+                    <div id="yourturn" class="game-yourTurn">Your turn</div>
+                </div>
+            </div>
+
+            <div id="game-scoreBetweenNumbers">-</div>
+            <div class="game-scoreContainer">
+                <div id="score0" class="game-scoreNumber"></div>
+                <div>
+                    <div id="name0" class="game-scoreName"></div>
+                    <div id="theirturn" class="game-yourTurn">Their turn</div>
+                </div>
+            </div>
+        </div>
+        <div id="game-board">
+            <div id="0" class="points-holes player0"> </div>
+            <div id="holes-row-0"></div>
+            <div id="holes-row-1"></div>
+            <div class="points-holes player1"></div>
+        </div>
+    </div>
+    <div id="game-over">
+        <div id="gameOverTopContainer">
+            <button id='gameStats'>
+                <img src='./assets/stats.svg' alt='Game Stats' />
+                <span>Check game statistics</span>
+            </button>
+            <div class="gameOverTextContainer winContainer">You</div>
+            <div class="gameOverTextContainer lostContainer">You</div>
+            <div class="gameOverTextContainer drawContainer">Its a</div>
+
+            <div class="gameOverTextContainer lostContainer">Lost</div>
+            <div class="gameOverTextContainer winContainer">Win</div>
+            <div class="gameOverTextContainer drawContainer">Draw</div>
+
+        </div>
+        <button id="menu" class="gameOverButton">
+            Main Menu
+        </button>
+        <button id="exit" class="gameOverButton">
+            Exit
+        </button>
+    </div>
+    <div id="main-menu-page">
+        <span class="title-logo"> MANCALA </span>
+        <div class="menu-bar">
+            <button id="config" class="menu-bar-item">
+                Configurations
+            </button>
+            <button id="inst" class="menu-bar-item">
+                Instructions
+            </button>
+            <button id="leaderboard" class="menu-bar-item">
+                LeaderBoard
+            </button>
+        </div>
+        <div id="menu-content">
+            <div id="config-content">
+                <div class="seeds menu-item">
+                    <div>seed number</div>
+                    <div class="interactive-number-box">
+                        <button id='add-seeds' class="box-button"><span class="game-box font">+</span></button>
+                        <div id='number-seeds' class="box-text font"></div>
+                        <button id='remove-seeds' class="box-button"><span class="game-box font">-</span> </button>
+                    </div>
+                </div>
+                <div class="user menu-item">
+                    <img src="./assets/user.png" alt="user" />
+                    <div class="interactive-user-box">
+                        <span class="username-label">username
+                            <input type="text" class="text-box user-input" pattern="[a-z]{6}" required></span>
+                        <br>
+                        <span class="username-label">password
+                            <input type="password" class="text-box user-input" pattern="[a-z]{6}" disabled /></span>
+                    </div>
+                </div>
+                <div class="game menu-item">
+                    <div>game</div>
+                    <div class="interactive-game-box">
+                        <div class="box" id="box-1"><span class="game-box">bot</span></div>
+                        <div class="box" id="box-2"><span class="game-box">multi player</span></div>
+                    </div>
+                </div>
+                <div class="holes menu-item">
+                    <div>hole number</div>
+                    <div class="interactive-number-box">
+                        <button id='add-holes' class="box-button"><span class="game-box font">+</span></button>
+                        <div id='number-holes' class="box-text font"></div>
+                        <button id='remove-holes' class="box-button"><span class="game-box font">-</span> </button>
+                    </div>
+                </div>
+                <div class="difficulty menu-item">
+                    difficulty
+                    <div class="interactive-difficulty-box">
+                        <button id='diff-easy' class='list-button'>easy</button>
+                        <button id='diff-medium' class='list-button'>medium</button>
+                        <button id='diff-hard' class='list-button'>hard</button>
+                    </div>
+                </div>
+
+                <div class="first menu-item">
+                    first player
+                    <div class="interactive-player-box">
+                        <label id='player-checkbox-label' for='player-checkbox' class="checkbox-content">
+                            <input id='player-checkbox' type="radio" name='firstPlayer' class="check-box">
+                            player
+                        </label>
+                        <label id='bot-checkbox-label' for='bot-checkbox' class="checkbox-content">
+                            <input id='bot-checkbox' type="radio" name='firstPlayer' class="check-box">
+                            <span id="snd-player-text"> bot </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="play menu-item">
+                    <div id="interactive-dice-box">
+                        <img class="dice" style="filter: invert(100%); "
+                            src="https://img.icons8.com/ios-glyphs/30/000000/dice.png" alt="dice" />
+                        play
+                    </div>
+                </div>
+            </div>
+            <div id="instructions-content">
+                The game begins with one player picking up all of the
+
+                pieces in any one of the holes on his side<span>.</span>
+
+                Moving counter clockwise<span>,</span> the player deposits one of the stones in each hole until the
+                stones run out
+                <p></p>
+                <p></p>
+                <br>
+                <p><span>1 </span> If you run into your own store<span>,</span> deposit one piece in it<span>.</span> If
+                    you run into
+                    your
+                    opponent<span>'</span>s store <span>,</span> skip it </p>
+                <br>
+
+                <p><span>2 </span>If the last piece you drop is in your own store<span>,</span> you get a free turn </p>
+                <br>
+
+                <p><span>3 </span> If the last piece you drop is in an empty hole on your side<span>,</span> you capture
+                    that piece and any pieces in the hole directly opposite </p>
+                <br>
+
+                <p><span>4 </span> Always place all captured pieces in your store </p>
+            </div>
+            <div id="leaderboard-content">
+                <div id="leaderboard-title">
+                    <span id="offline-title"> Offline </span>
+                    <span id="online-title" class="disabled"> Online </span>
+                </div>
+                <div id="leaderboard-content-list">
+                    <img id="nextIcon" src="./assets/greenTriangle.svg" alt="pause" />
+                    <span class="leaderboard-item-prize">
+                        <span class="leaderboard-name">
+                            <img class="prize-img" src="../assets/Prize.svg" alt="prize" />
+                            BIA
+                        </span>
+                        <span class="leaderboard-points">
+                            <span style="font-family: Changa One; font-size: 45px;">
+                                45
+                            </span>
+                            pts
+                        </span>
+                    </span>
+                    <span class="leaderboard-item-prize">
+                        <span>
+                            <img class="prize-img" src="../assets/Prize.svg" alt="prize" />
+                            BIA
+                        </span>
+                        <span class="leaderboard-points">
+                            <span style="font-family: Changa One; font-size: 45px;">
+                                45
+                            </span>
+                            pts
+                        </span>
+                    </span>
+                    <span class="leaderboard-item-prize">
+                        <span>
+                            <img class="prize-img" src="../assets/Prize.svg" alt="prize" />
+                            tiago
+                        </span>
+                        <span class="leaderboard-points">
+                            <span style="font-family: Changa One; font-size: 45px;">
+                                45
+                            </span>
+                            pts
+                        </span>
+                    </span>
+                    <span class="leaderboard-item">
+                        <span>
+                            BIA
+                        </span>
+                        <span class="leaderboard-points">
+                            <span style="font-family: Changa One; font-size: 45px;">
+                                45
+                            </span>
+                            pts
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pause-menu">
+        <div id="pause-menu-box">
+            <span id="pause-menu-name">pause menu</span>
+            <div id="pause-menu-button-box">
+                <div class="pause-menu-button">resume</div>
+                <div class="pause-menu-button">main menu</div>
+                <div class="pause-menu-button">restart</div>
+                <div class="pause-menu-button">exit</div>
+            </div>
+            <div id="pause-menu-footmsg">ESC TO CONTINUE GAME</div>
+        </div>
+    </div>
+    <div id="loading-screen">
+        <div class="loading">
+            <span>~The bot is playing~</span>
+            <div id="loading-animation">
+                <div class="dot" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+            </div>
+            <span id="position-played"></span>
+        </div>
+    </div>
+    <div id='error-popup'>
+        <div id="error-content">
+            <div id="error-msg">Invalid Name</div>
+            <button id="error-button">
+                Ok
+            </button>
+        </div>
+    </div>
+    <div id="stats-page">
+        <span class="title-logo"> MANCALA </span>
+
+        <div id=stats-board>
+            <div class="stats-boardContainer">
+                <div class="stats-boardNumber"></div>
+                <div class="stats-boardName"></div>
+            </div>
+            <div class="stats-boardContainer">
+                <div id="stats-boardBetweenNumbers">-</div>
+                <div id="stats-boardTimeContainer">
+                    <img src="./assets/Clock.svg" alt="Time" id="stats-boardTimeImg" />
+                    <span id="stats-boardTimeText">13:05</span>
+                </div>
+                <div class="stats-boardName" style="opacity: 0;">&nbsp;</div>
+            </div>
+            <div class="stats-boardContainer">
+                <div class="stats-boardNumber"></div>
+                <div class="stats-boardName"></div>
+            </div>
+
+        </div>
+        <div id="stats-gameMoves">
+            <div class="gameMoves-table">
+                <div class="gameMoves-line">
+                    <span class="gameMoves-table-name"></span>
+                </div>
+                <div class="gameMoves-line">
+                    <span class="gameMoves-table-name"></span>
+                </div>
+            </div>
+
+        </div>
+        <div id="stats-buttonsContainer">
+            <button class="stats-button">
+                <img class="stats-buttonImage" src="./assets/Restart.svg" alt="Play again" />
+                <span>Play again</span>
+            </button>
+            <button class="stats-button">
+                <img class="stats-buttonImage" src="./assets/Home.svg" alt="Main menu" />
+                <span>Main menu</span>
+            </button>
+        </div>
+    </div>
+    <Canvas id='canvas'></Canvas>
+</body>
+
+</html>

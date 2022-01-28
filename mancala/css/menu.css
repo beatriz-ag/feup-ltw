@@ -1,0 +1,488 @@
+/*----------------------------------- MAIN MENU PAGE -----------------------------------*/
+#main-menu-page {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+
+#main-menu-page>.title-logo {
+    top: 0.2em;
+    position: absolute;
+    width: 100%;
+    height: 146px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 120px;
+    line-height: 124px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    background-image: linear-gradient(180deg, #DABC22 0%, rgba(231, 200, 37, 1) 41.67%, #252420 78.77%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#main-menu-page>.menu-bar {
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+    display: block;
+    width: 75%;
+    height: 5vw;
+    margin: 0 auto;
+    top: 10em;
+    background: #9F9989;
+    box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    text-align: center;
+}
+
+.menu-bar-item {
+    height: 100%;
+    font-size: 2.6vw;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: -0.02em;
+    background-color: transparent;
+    border: none;
+    text-shadow: 2px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.menu-bar-item:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+#config {
+    position: relative;
+    color: #DABC22;
+}
+
+#inst {
+    margin-left: 1.4em;
+    margin-right: 1.4em;
+    color: #71631E;
+}
+
+#leaderboard {
+    position: relative;
+    color: #71631E;
+}
+
+#menu-content {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 12em;
+    width: 75%;
+    background: #1c2931;
+    box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    padding-bottom: 2%;
+    max-height: 520px;
+    padding-top: 1%;
+}
+
+
+/*----------------------------------- CONFIG CONTENT -----------------------------------*/
+#config-content {
+    grid-template-areas: "seeds  user  game"
+        "holes difficulty  first"
+        ". play  play";
+    grid-template-columns: 33% 33% 33%;
+}
+
+.menu-item {
+    font-size: 35px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #fffffffa;
+    justify-content: center;
+}
+
+.seeds {
+    text-align: center;
+    margin-top: 15%;
+    align-content: center;
+    grid-area: seeds;
+}
+
+.interactive-number-box {
+    justify-content: space-between;
+    display: inline-flex;
+    font-family: numbersFont;
+    min-width: 7em;
+    width: 6.5em;
+    max-width: fit-content;
+    height: 2em;
+    margin-top: 0.2em;
+    color: rgba(161, 121, 70, 1);
+    font-size: 40px;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    left: 0.5em;
+    right: 0.5em;
+    padding-bottom: 0.15em;
+}
+
+.box-button {
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C8A422;
+    border-radius: 30px;
+    border: none;
+    min-width: 88px;
+    min-height: 88px;
+    width: 88px;
+    height: 88px;
+    max-width: 88px;
+    max-height: 88px;
+    font-size: 70px;
+    color: white;
+}
+
+.box-button:hover {
+    cursor: pointer;
+}
+
+
+.box-text {
+    padding-top: 0.35em;
+    font-weight: bolder;
+    font-size: 70px;
+    color: rgba(161, 121, 70, 1);
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+}
+
+.user {
+    grid-area: user;
+    margin-top: 15%;
+    align-content: center;
+}
+
+.user img {
+    width: 80px;
+    margin-top: -4vh;
+}
+
+.interactive-user-box {
+    font-size: 16px;
+    display: block;
+}
+
+.text-box {
+    text-align: center;
+    margin-bottom: 15px;
+    left: 49.71%;
+    right: 0%;
+    top: 53.27%;
+    background: #C4C4C4;
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+    height: 2.3em;
+    margin-left: 5px;
+    bottom: 21px;
+}
+
+.text-box:hover {
+    transform: scale(1.1);
+}
+
+
+.username-label:nth-child(3) {
+    opacity: .4;
+}
+
+.game {
+    text-align: center;
+    margin-top: 15%;
+    align-content: center;
+    grid-area: game;
+}
+
+.interactive-game-box {
+    margin: 0 auto;
+    width: 90%;
+    display: inline-flex;
+    height: 6rem;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 0.2em;
+}
+
+.interactive-game-box:hover {
+    cursor: pointer;
+}
+
+#box-1 {
+    font-size: 50px;
+    line-height: normal;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#box-2 {
+    overflow: hidden;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.box {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-box:hover {
+    font-size: 120%;
+}
+
+.holes {
+    text-align: center;
+    margin-top: 15%;
+    align-content: center;
+    grid-area: holes;
+}
+
+.difficulty {
+    text-align: center;
+    margin-top: 15%;
+    align-content: center;
+    grid-area: difficulty;
+}
+
+.interactive-difficulty-box {
+    margin-top: 0.3em;
+}
+
+.list-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.2px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.3em;
+    height: fit-content;
+    padding-bottom: 0;
+}
+
+.list-button:hover {
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+.first {
+    text-align: center;
+    margin-top: 15%;
+    align-content: center;
+    grid-area: first;
+}
+
+.interactive-player-box {
+    margin-top: 0.3em;
+}
+
+.checkbox-content {
+    min-width: max-content;
+    display: block;
+    margin: 0 auto;
+    float: left;
+    margin-top: 0.2px;
+    background-color: transparent;
+    color: rgba(218, 188, 34, 0.4);
+    border: none;
+    font-size: 1.3em;
+    height: fit-content;
+    padding-bottom: 0;
+    margin-left: 20%;
+    margin-bottom: 0.4em;
+    cursor: pointer;
+}
+
+.check-box {
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.check-box:checked {
+    background-color: #C8A422;
+    border-width: 4px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(180deg);
+    }
+
+    to {
+        transform: rotateY(-180deg);
+    }
+}
+
+.play {
+    grid-area: play;
+    margin-bottom: 0;
+    text-align: right;
+    padding-right: 5vw;
+}
+
+.dice {
+    animation-duration: 0.6s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#interactive-dice-box:hover {
+    cursor: pointer;
+    text-decoration: solid;
+}
+
+#interactive-dice-box {
+    margin-top: 0.3em;
+}
+
+
+/*----------------------------------- INSTRUCTIONS CONTENT -----------------------------------*/
+#instructions-content {
+    text-align: left;
+    height: 500px;
+    width: 86%;
+    color: white;
+    padding: 1em 3em 1em 3em;
+    overflow-y: auto;
+    font-size: 25px;
+    padding-right: 2px;
+}
+
+#instructions-content span {
+    font-family: numbersFont;
+}
+
+
+/*----------------------------------- LEADERBOARD CONTENT -----------------------------------*/
+
+#leaderboard-content {
+    padding: 2em 1em 1em 3em;
+}
+
+#leaderboard-title {
+    margin-top: -0.4em;
+    cursor: pointer;
+    text-align: center;
+    color: #DABC22;
+    font-size: 4em;
+}
+
+#leaderboard-title span {
+    margin-right: 2em;
+}
+
+.disabled {
+    color: rgb(113, 99, 30);
+}
+
+#leaderboard-content-list {
+    padding-top: .5em;
+    max-height: 40vh;
+    margin-right: 2%;
+    color: white;
+    overflow-y: auto;
+}
+
+.leaderboard-item-prize {
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2.4vw;
+}
+
+.prize-img {
+    width: 50px;
+}
+
+.leaderboard-item {
+    font-size: 2.5vw;
+    margin-right: 1em;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+
+.font {
+    font-family: numbersFont;
+}
+
+/*----------------------------------- RESPONSIVENESS -----------------------------------*/
+@media only screen and (max-width: 1000px) {
+    #config-content {
+        grid-template-areas: "seeds  user ""game difficulty""holes  first""play  play";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 30% 30% 30% 10%;
+        position: relative;
+    }
+
+    #menu-content {
+        width: 95%;
+        max-height: 1200px;
+    }
+
+    #instructions-content {
+        padding: 2em 3em 2em 3em;
+        width: 78%;
+    }
+
+    .main-menu>.menu-bar {
+        width: 93%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .leaderboard-item-prize {
+        font-size: 30px;
+    }
+
+    .leaderboard-item {
+        font-size: 30px;
+        margin-left: 42px;
+    }
+
+    .leaderboard-points {
+        font-size: 40px;
+        margin-left: 47%;
+        margin-right: 0.3em;
+    }
+
+    .prize-img {
+        width: 30px;
+    }
+
+    #pause-menu-box {
+        height: 80%;
+        width: 50%;
+        font-size: 30px;
+        z-index: 1;
+    }
+
+    #pause-menu-footmsg {
+        position: absolute;
+        width: 100%;
+        bottom: 5%;
+        margin-left: 20%;
+        height: fit-content;
+    }
+}

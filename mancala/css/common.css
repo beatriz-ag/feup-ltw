@@ -1,0 +1,140 @@
+@font-face {
+    font-family: mancalaFont;
+    src: url(./fonts/mancala.ttf);
+}
+
+@font-face {
+    font-family: numbersFont;
+    src: url(./fonts/Changa-one.regular.ttf);
+}
+
+* {
+    font-family: mancalaFont;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #263741;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    background: rgb(196 196 196 / 68%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DABC22;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+/*----------------------------------- ANIMATION -----------------------------------*/
+
+@keyframes up {
+    from {
+        transform: translateY(130vh);
+    }
+
+    50% {
+        transform: translateY(60vh);
+    }
+
+    to {
+        transform: translateY(130vh);
+
+    }
+}
+
+/*Pop up*/
+
+#error-popup,
+#loading-screen {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(3, 0, 0, 0.3);
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.loading,
+#error-content {
+    width: 25%;
+    height: 22vh;
+    border: 5px;
+    border-style: dashed;
+    border-color: rgba(169, 115, 62, 1);
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #263741;
+    flex-direction: column;
+    transition: all 0.15s ease;
+}
+
+.loading:hover {
+    font-size: 1.5em;
+    border-width: 10px;
+    transition: all 0.15s ease;
+}
+
+#error-popup:hover {
+    border-width: 7.5px;
+    transition: all 0.15s ease;
+}
+
+#error-msg {
+    height: 5vh;
+    margin-top: 3vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+}
+
+#error-popup button {
+    display: block;
+    font-family: mancalaFont;
+    font-size: 1.3vw;
+    line-height: 16px;
+
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    margin: 3vh 0;
+    padding: 2.5vh 4.5vw;
+
+    color: #FFFFFF;
+    background: linear-gradient(180deg, rgba(173, 114, 40, 0.8) 0%, rgba(173, 114, 40, 0.591667) 99.99%, rgba(173, 114, 40, 0) 100%);
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+}
+
+#error-popup button:hover {
+    transform: scale(1.15);
+    background: linear-gradient(180deg, rgba(150, 88, 13, 0.8) 50%, rgba(173, 114, 40, 0.591667) 99.99%, rgba(173, 114, 40, 0) 100%);
+}
+
+#canvas {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
